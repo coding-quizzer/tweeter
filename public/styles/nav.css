@@ -2,11 +2,13 @@ nav {
   color: #FFFFFF;
   background-color: #4056A1;
   height: 120px;
+  width: 100%;
   display: flex;
   align-items: center;
   padding-left: 1.5em;
   padding-right: 1.5em;
   justify-content: space-between;
+  position: fixed;
 }
 
 .site-name{
