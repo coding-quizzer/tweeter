@@ -1,11 +1,10 @@
 $(document).ready(function() {
   $('section.new-tweet > form > textarea').on('input', function (event) {
     const { value, textLength } = this;
-    console.log('value', value, 'textLength', textLength);
-    const counter = $(this).parent().children('.footer').children('output').get(0); 
+    const counter = $(this).parent().find('.counter').get(0); 
     const countValue = 140 - this.textLength;
     counter.innerHTML = countValue;
-    console.log($(this));
+    console.log(countValue);
   });
 
 });
