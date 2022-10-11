@@ -1,0 +1,30 @@
+form {
+  display: flex;
+  flex-direction: column;
+  font-weight: 800;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+textarea {
+  display: block;
+  border: 0px;
+  border-bottom: solid;
+  max-width: 140em;
+  height: 1.5em;
+  background-color: #f4f1ec;
+  resize: none;
+  font-weight: 300;
+}
+
+button {
+  background: #4056A1;
+  color: #FFFFFF;
+  font-family:'Bungee', cursive, sans-serif;
+}
+
