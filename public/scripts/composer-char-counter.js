@@ -3,8 +3,9 @@ $(document).ready(function() {
     const { value, textLength } = this;
     console.log('value', value, 'textLength', textLength);
     const counter = $(this).parent().children('.footer').children('output').get(0); 
-    let countValue = parseInt(counter.innerHTML);
-    counter.innerHTML = String(--countValue);
+    const countValue = 140 - this.textLength;
+    counter.innerHTML = countValue;
+    console.log($(this));
   });
 
 });
