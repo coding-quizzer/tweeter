@@ -11,6 +11,10 @@ form {
 
 }
 
+.invalid-length {
+  color: red;
+}
+
 textarea {
   display: block;
   border: 0px;
