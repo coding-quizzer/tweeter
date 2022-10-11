@@ -1,0 +1,27 @@
+.tweet  {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border: solid;
+
+}
+
+.tweet header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.tweet header img {
+  height: 40px;
+  width: 40px;
+}
+
+.tweet header .user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
