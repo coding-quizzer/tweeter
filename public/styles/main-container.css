@@ -14,7 +14,7 @@
   box-shadow: 5px 5px grey;
   word-break: break-all; 
   width: 600px;
-  min-height: 200px;
+  min-height: 150px;
 }
 
 .tweet header, .tweet footer {
