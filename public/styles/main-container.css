@@ -11,10 +11,13 @@
   border: solid;
   margin: 30px;
   font-size: 15px;
-  box-shadow: 5px 5px grey;
-  word-break: break-all; 
+  word-break: break-word; 
   width: 600px;
   min-height: 150px;
+}
+
+.tweet:hover {
+  box-shadow: 5px 5px grey;
 }
 
 .tweet header, .tweet footer {
