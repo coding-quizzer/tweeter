@@ -133,12 +133,12 @@ $('document').ready(function() {
     
   };
 
-  const $tweet = createTweetElement(tweetObject);
+  const renderTweets = function(tweets) {
+    tweets.forEach(element => $('#main-container').append(createTweetElement(element)));
+  };
 
-  
-  console.log($tweet);
+  renderTweets(arrayOfTweets);
 
-  $('#main-container').append($tweet);
-})
+});
 
 
