@@ -110,9 +110,11 @@ $('document').ready(function() {
 
     const $footer = $('<footer>');
 
+   const timePosted = timeago.format(dateCreated);
+
     const $postTime = $('<span>')
       .addClass('post-time')
-      .text(`${dateCreated} milliseconds ago`);
+      .text(timeago.format(timePosted));
 
     const $reactions=$('<span>')
       .addClass('reactions')
