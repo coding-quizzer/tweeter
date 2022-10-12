@@ -4,8 +4,9 @@
   padding: 10px;
   border: solid;
   margin: 30px;
-  font-size: 20px;
+  font-size: 15px;
   box-shadow: 5px 5px grey;
+  word-break: break-all; 
 }
 
 .tweet header, .tweet footer {
