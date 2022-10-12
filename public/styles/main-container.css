@@ -1,17 +1,23 @@
 .tweet  {
   display: flex;
   flex-direction: column;
-  padding: 5px;
+  padding: 10px;
   border: solid;
-
+  margin: 30px;
+  font-size: 20px;
+  box-shadow: 5px 5px grey;
 }
 
-.tweet header {
+.tweet header, .tweet footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   font-size: 15px;
+}
+
+.tweet header {
+  margin-bottom: 10px;
 }
 
 .tweet header img {
@@ -23,5 +29,14 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
 
+.tweet header .account-name {
+  color: rgb(155, 153, 153)
+}
+
+.tweet footer {
+  margin-top: 10px;
+  border-top: solid;
+  padding-top: 5px;
 }
