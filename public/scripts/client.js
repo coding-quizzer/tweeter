@@ -76,66 +76,58 @@ $('document').ready(function() {
   const createTweetElement = function(tweetObject) {
     const {user, content, created_at: dateCreated} = tweetObject;
 
-    const $tweet = $('<article>');
+    const $tweet = $('<article>')
+      .addClass('tweet');
     
     const $header = $('<header>');
     
+
+    const $user = $('<span>');
     
-    const $user = $(`
-    <span class="user">
-    <img src=${user.avatars}>
-    <span>
-    ${user.name}
-    </span>
-    </span> 
-    `)
+    const $userImage = $('<img>')
+      .attr('src', user.avatars);
     
-    const $handle = $(`
-    <span class="account-name">${user.handle}</span>
-    `);
+
+    const $userName = $(`<span>`)
+      .text(user.name);
+    
+    $user.addClass('user')
+      .append($userImage)
+      .append($userName);
+
+    
+    const $handle = $('<span>')
+      .addClass('accout-name')
+      .text(user.handle);
+
 
     $header.append([$user, $handle]);
 
-    const $body = $(`
-    <span class="content"> ${content.text} </span>
-    `)
+    const $body = $(`<span>`)
+      .addClass('content')
+      .text(content.text);
 
 
     const $footer = $('<footer>');
 
-    const $postTime = $(`
-    <span class="post-time">${dateCreated} milliseconds ago</span>
-    `);
+    const $postTime = $('<span>')
+      .addClass('post-time')
+      .text(`${dateCreated} milliseconds ago`);
 
-    const $reactionsTest=$(`
-    <span class="reactions">
-      <i class="fa-solid fa-flag react"></i>
-      <i class="fa-solid fa-arrows-rotate react"></i>
-      <i class="fa-solid fa-heart react"></i>      
-    </span>
-    `);
-
-    const $reactions=$(`<span>`);
-
-    $reactions.addClass('reactions');
-
-    $reactions.append($('<i class="fa-solid fa-flag react"></i>'))
+    const $reactions=$('<span>')
+      .addClass('reactions')
+      .append($('<i class="fa-solid fa-flag react"></i>'))
       .append($('<i class="fa-solid fa-arrows-rotate react"></i>'))
       .append($('<i class="fa-solid fa-heart react"></i>'));
 
     $footer.append([$postTime, $reactions]);
 
-    const $tweetBottom = $('<span>');
-    $tweetBottom.addClass('tweet-bottom');
-    $tweetBottom.append([$body, $footer]);
+    const $tweetBottom = $('<span>')
+      .addClass('tweet-bottom')
+      .append([$body, $footer]);
 
 
-    $tweet.addClass('tweet');
     $tweet.append([$header, $tweetBottom]);
-
-    console.log($reactions.get(0));
-    console.log($reactionsTest.get(0));
-    
     
     return $tweet;
     
