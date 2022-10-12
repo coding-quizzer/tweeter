@@ -1,5 +1,5 @@
 
-form {
+.new-tweet form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -8,18 +8,17 @@ form {
   
 }
 
-.footer {
+.new-tweet .footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 .invalid-length {
   color: red;
 }
 
-textarea {
+.new-tweet textarea {
   display: block;
   border: 0px;
   border-bottom: solid;
@@ -28,7 +27,7 @@ textarea {
   font-size: 15px;
 }
 
-button {
+.new-tweet .footer button {
   background: #4056A1;
   color: #FFFFFF;
   font-family:'Bungee', cursive, sans-serif;
