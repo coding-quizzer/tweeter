@@ -137,7 +137,26 @@ $('document').ready(function() {
     tweets.forEach(element => $('#main-container').append(createTweetElement(element)));
   };
 
-  renderTweets(arrayOfTweets);
+  const form = $('section.new-tweet').children('form');
+
+  form.submit(function(event) {
+
+    event.preventDefault();
+    console.log(this);
+    const query = $( this ).serialize();
+    $.ajax('/tweets/', { method: 'POST', data: query});
+
+  });
+
+  const loadTweets = function() {
+    $.ajax('/tweets/', { method: 'GET', })
+    .then(tweets => {
+      renderTweets(tweets);
+    })
+    .catch(error => console.log(error));
+  }
+
+  loadTweets();
 
 });
 
