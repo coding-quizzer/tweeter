@@ -1,7 +1,16 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: 800;
+}
+
 form {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   font-weight: 800;
+  
 }
 
 .footer {
@@ -20,10 +29,9 @@ textarea {
   border: 0px;
   border-bottom: solid;
   max-width: 140em;
-  height: 1.5em;
   background-color: #f4f1ec;
   resize: none;
-  font-weight: 300;
+  font-size: 15px;
 }
 
 button {
