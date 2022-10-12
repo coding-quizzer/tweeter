@@ -53,6 +53,11 @@
   padding-top: 5px;
 }
 
+.tweet footer .reactions i {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
 .tweet footer .reactions i:hover {
   color: orange;
   cursor: pointer;
