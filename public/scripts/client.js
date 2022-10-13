@@ -132,7 +132,8 @@ $('document').ready(function() {
   };
 
   const renderTweets = function(tweets) {
-    tweets.forEach(element => $('#main-container').append(createTweetElement(element)));
+    reversedTweets = [...tweets].reverse();
+    reversedTweets.forEach(element => $('#main-container').append(createTweetElement(element)));
   };
 
   const form = $('section.new-tweet').children('form');
