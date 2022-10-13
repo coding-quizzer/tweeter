@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-    $('document').ready(function() {
+$('document').ready(function() {
       
       $('#form-error').hide()
       
@@ -77,34 +77,41 @@
   form.submit(function(event) {
 
     event.preventDefault();
-    $('#form-error').slideUp(); 
     const inputBox = $(this).children('#tweet-tweet')[0];
-    const textLength = inputBox.textLength
-    if (textLength === 0) {
-      $('#form-error').text("There is no message to post");
-      $('#form-error').slideDown();
-      return;
-    }
+    const textLength = inputBox.textLength;
+    $('#form-error').slideUp(() => {
+      try{
+        postText(this, inputBox); 
+      } catch (error) {
+        renderError(error.message);
+      }
+    });
+  });
 
-    if (textLength > 140) {
-      $('#form-error').text("Content is too long");
+  const renderError = function (error) {
+    $('#form-error').text(error);
       $('#form-error').slideDown();
       return;
-    }
-    const query = $( this ).serialize();
+  };
+
+  const postText = function(form, inputBox) {
+    const { textLength } = inputBox
+
+    if (textLength === 0) throw new Error("There is no message to post");
+    if (textLength > 140) throw new Error("Content is too long");
+
+    const query = $( form ).serialize();
     
     $.ajax('/tweets/', { method: 'POST', data: query})
       .then(function (data, error) {
-        console.log(data);
         inputBox.value = "";
         return $.ajax('/tweets/', { method: 'GET'});
       })
       .then (function (tweets) {
         renderTweets(tweets.slice(-1));
       });
-     
 
-  });
+  }
 
   const loadTweets = function() {
     $.ajax('/tweets/', { method: 'GET'})
