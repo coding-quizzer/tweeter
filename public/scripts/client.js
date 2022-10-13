@@ -144,7 +144,17 @@ $('document').ready(function() {
   form.submit(function(event) {
 
     event.preventDefault();
-    console.log(this);
+    const textLength = $(this).children('#tweet-tweet')[0].textLength;
+    console.log(textLength);
+    if (textLength === 0) {
+      alert("There is no message to post");
+      return;
+    }
+
+    if (textLength > 140) {
+      alert("Content is too long");
+      return;
+    }
     const query = $( this ).serialize();
     $.ajax('/tweets/', { method: 'POST', data: query});
 
