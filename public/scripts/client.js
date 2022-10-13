@@ -47,63 +47,64 @@ const tweetObjectTest = {
 const tweetLayout = `
 <article class="tweet">
 <header>
-  <span class="user">
-    <img src="./images/profile-hex.png">
-    <span>
+<span class="user">
+<img src="./images/profile-hex.png">
+<span>
       Rhoda Jacobs
     </span> 
-  </span>
-  
-  <span class="account-name">@MrsJacobs</span>
-</header>
-<span class="tweet-bottom">
-  <span class="content">Hello World! </span>
-  <footer>
+    </span>
+    
+    <span class="account-name">@MrsJacobs</span>
+    </header>
+    <span class="tweet-bottom">
+    <span class="content">Hello World! </span>
+    <footer>
     <span class="post-time">10 days ago</span>
     <span class="reactions">
-      <i class="fa-solid fa-flag react"></i>
-      <i class="fa-solid fa-arrows-rotate react"></i>
-      <i class="fa-solid fa-heart react"></i>      
+    <i class="fa-solid fa-flag react"></i>
+    <i class="fa-solid fa-arrows-rotate react"></i>
+    <i class="fa-solid fa-heart react"></i>      
     </span>
-  </footer>
-</span>  
-
-</article>
-`
-$('document').ready(function() {
-
-  
-  const createTweetElement = function(tweetObject) {
-    const {user, content, created_at: dateCreated} = tweetObject;
-
-    const $tweet = $('<article class="tweet">');
+    </footer>
+    </span>  
     
-    const $header = $('<header>');
-    
-
-    const $user = $('<span class="user">');
-
-    console.log('user', user);
-    
-    const $userImage = $('<img>')
-      .attr('src', user.avatars);
-    
-
-    const $userName = $(`<span>`)
-      .text(user.name);
-    
-    $user.append($userImage)
+    </article>
+    `
+    $('document').ready(function() {
+      
+      $('#form-error').hide()
+      
+      const createTweetElement = function(tweetObject) {
+        const {user, content, created_at: dateCreated} = tweetObject;
+        
+        const $tweet = $('<article class="tweet">');
+        
+        const $header = $('<header>');
+        
+        
+        const $user = $('<span class="user">');
+        
+        console.log('user', user);
+        
+        const $userImage = $('<img>')
+        .attr('src', user.avatars);
+        
+        
+        const $userName = $(`<span>`)
+        .text(user.name);
+        
+        $user.append($userImage)
         .append($userName);
-
-    
-    const $handle = $('<span class="account-name">')
-      .text(user.handle);
-
-
-    $header.append([$user, $handle]);
-
-    const $body = $(`<span class="content">`)
-      .text(content.text);
+        
+        
+        const $handle = $('<span class="account-name">')
+        .text(user.handle);
+        
+        
+        $header.append([$user, $handle]);
+        
+        const $body = $(`<span class="content">`)
+        .text(content.text);
 
 
     const $footer = $('<footer>');
@@ -145,14 +146,17 @@ $('document').ready(function() {
     const inputBox = $(this).children('#tweet-tweet')[0];
     const textLength = inputBox.textLength
     if (textLength === 0) {
-      alert("There is no message to post");
+      $('#form-error').text("There is no message to post");
+      $('#form-error').slideDown();
       return;
     }
 
     if (textLength > 140) {
-      alert("Content is too long");
+      $('#form-error').text("Content is too long");
+      $('#form-error').slideDown();
       return;
     }
+    $('#form-error').slideUp(); 
     const query = $( this ).serialize();
     
     $.ajax('/tweets/', { method: 'POST', data: query})
