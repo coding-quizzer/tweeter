@@ -76,13 +76,12 @@ $('document').ready(function() {
   const createTweetElement = function(tweetObject) {
     const {user, content, created_at: dateCreated} = tweetObject;
 
-    const $tweet = $('<article>')
-      .addClass('tweet');
+    const $tweet = $('<article class="tweet">');
     
     const $header = $('<header>');
     
 
-    const $user = $('<span>');
+    const $user = $('<span class="user">');
     
     const $userImage = $('<img>')
       .attr('src', user.avatars);
@@ -91,20 +90,17 @@ $('document').ready(function() {
     const $userName = $(`<span>`)
       .text(user.name);
     
-    $user.addClass('user')
-      .append($userImage)
-      .append($userName);
+    $user.append($userImage)
+        .append($userName);
 
     
-    const $handle = $('<span>')
-      .addClass('accout-name')
+    const $handle = $('<span class="account-name">')
       .text(user.handle);
 
 
     $header.append([$user, $handle]);
 
-    const $body = $(`<span>`)
-      .addClass('content')
+    const $body = $(`<span class="content">`)
       .text(content.text);
 
 
@@ -112,20 +108,20 @@ $('document').ready(function() {
 
    const timePosted = timeago.format(dateCreated);
 
-    const $postTime = $('<span>')
-      .addClass('post-time')
-      .text(timeago.format(timePosted));
+    const $postTime = $('<span class="post-time">')
+      .text(timePosted);
 
-    const $reactions=$('<span>')
-      .addClass('reactions')
-      .append($('<i class="fa-solid fa-flag react"></i>'))
-      .append($('<i class="fa-solid fa-arrows-rotate react"></i>'))
-      .append($('<i class="fa-solid fa-heart react"></i>'));
-
+    const $reactions=$(`
+    <span class="reactions">
+      <i class="fa-solid fa-flag react>
+      <i class="fa-solid fa-flag react"></i>
+      <i class="fa-solid fa-arrows-rotate react"></i>
+      <i class="fa-solid fa-heart react"></i>
+    </span>
+      `);
     $footer.append([$postTime, $reactions]);
 
-    const $tweetBottom = $('<span>')
-      .addClass('tweet-bottom')
+    const $tweetBottom = $('<span class="tweet-bottom">')
       .append([$body, $footer]);
 
 
