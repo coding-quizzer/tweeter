@@ -18,6 +18,14 @@
   color: red;
 }
 
+.new-tweet span {
+  background-color: rgb(255, 182, 182);
+  color: red;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 20px;
+}
+
 .new-tweet textarea {
   display: block;
   border: 0px;
