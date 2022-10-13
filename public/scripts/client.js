@@ -143,6 +143,7 @@ const tweetLayout = `
   form.submit(function(event) {
 
     event.preventDefault();
+    $('#form-error').slideUp(); 
     const inputBox = $(this).children('#tweet-tweet')[0];
     const textLength = inputBox.textLength
     if (textLength === 0) {
@@ -156,7 +157,6 @@ const tweetLayout = `
       $('#form-error').slideDown();
       return;
     }
-    $('#form-error').slideUp(); 
     const query = $( this ).serialize();
     
     $.ajax('/tweets/', { method: 'POST', data: query})
