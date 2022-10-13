@@ -82,6 +82,8 @@ $('document').ready(function() {
     
 
     const $user = $('<span class="user">');
+
+    console.log('user', user);
     
     const $userImage = $('<img>')
       .attr('src', user.avatars);
@@ -132,8 +134,7 @@ $('document').ready(function() {
   };
 
   const renderTweets = function(tweets) {
-    reversedTweets = [...tweets].reverse();
-    reversedTweets.forEach(element => $('#main-container').append(createTweetElement(element)));
+    tweets.forEach(element => $('#main-container').prepend(createTweetElement(element)));
   };
 
   const form = $('section.new-tweet').children('form');
@@ -141,8 +142,8 @@ $('document').ready(function() {
   form.submit(function(event) {
 
     event.preventDefault();
-    const textLength = $(this).children('#tweet-tweet')[0].textLength;
-    console.log(textLength);
+    const inputBox = $(this).children('#tweet-tweet')[0];
+    const textLength = inputBox.textLength
     if (textLength === 0) {
       alert("There is no message to post");
       return;
@@ -153,12 +154,22 @@ $('document').ready(function() {
       return;
     }
     const query = $( this ).serialize();
-    $.ajax('/tweets/', { method: 'POST', data: query});
+    
+    $.ajax('/tweets/', { method: 'POST', data: query})
+      .then(function (data, error) {
+        console.log(data);
+        inputBox.value = "";
+        return $.ajax('/tweets/', { method: 'GET'});
+      })
+      .then (function (tweets) {
+        renderTweets(tweets.slice(-1));
+      });
+     
 
   });
 
   const loadTweets = function() {
-    $.ajax('/tweets/', { method: 'GET', })
+    $.ajax('/tweets/', { method: 'GET'})
     .then(tweets => {
       renderTweets(tweets);
     })
