@@ -9,6 +9,7 @@ nav {
   padding-right: 1.5em;
   justify-content: space-between;
   position: fixed;
+  z-index: 1;
 }
 
 .site-name{
