@@ -4,9 +4,9 @@ Tweeter is a simple, single-page Twitter clone. Users can post messages to the p
 
 ## Screenshots
 
-!["Screenshot of posted tweets"][https://github.com/coding-quizzer/tweeter/blob/master/docs/tweeter_app_posts.png?raw=true]
-!["Screenshot of Error message when tweets are too long"][https://github.com/coding-quizzer/tweeter/blob/master/docs/content_too_long_error_message.png?raw=true]
-!["Phone view of Tweeter"][https://github.com/coding-quizzer/tweeter/blob/master/docs/tweeter_app_phone_view.png?raw=true]
+!["Screenshot of posted tweets"](https://github.com/coding-quizzer/tweeter/blob/master/docs/tweeter_app_posts.png?raw=true)
+!["Screenshot of Error message when tweets are too long"](https://github.com/coding-quizzer/tweeter/blob/master/docs/content_too_long_error_message.png?raw=true)
+!["Phone view of Tweeter"](https://github.com/coding-quizzer/tweeter/blob/master/docs/tweeter_app_phone_view.png?raw=true)
 
 
 ## Getting Started
