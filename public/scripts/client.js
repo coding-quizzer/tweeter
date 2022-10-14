@@ -29,9 +29,6 @@ $('document').ready(function() {
       .text(user.name)
       .appendTo($user);
     
-    // $user.append([$userImage, $userName]);
-    
-    
     const $handle = $('<span class="account-name">')
       .text(user.handle)
       .appendTo($header);
