@@ -52,7 +52,6 @@ $('document').ready(function() {
 
     const $reactions = $(`
     <span class="reactions">
-      <i class="fa-solid fa-flag">
       <i class="fa-solid fa-flag "></i>
       <i class="fa-solid fa-arrows-rotate"></i>
       <i class="fa-solid fa-heart react"></i>
