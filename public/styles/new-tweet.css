@@ -8,7 +8,7 @@
   
 }
 
-.new-tweet .footer {
+.new-tweet footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -35,7 +35,7 @@
   font-size: 15px;
 }
 
-.new-tweet .footer button {
+.new-tweet footer button {
   background: #4056A1;
   color: #FFFFFF;
   font-family:'Bungee', cursive, sans-serif;
