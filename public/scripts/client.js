@@ -13,38 +13,45 @@ $('document').ready(function() {
     
     const $tweet = $('<article class="tweet">');
     
-    const $header = $('<header>');
+    const $header = $('<header>')
+      .appendTo($tweet);
     
     
-    const $user = $('<span class="user">');
+    const $user = $('<span class="user">')
+      .appendTo($header);
     
     const $userImage = $('<img>')
-      .attr('src', user.avatars);
+      .attr('src', user.avatars)
+      .appendTo($user);
     
     
     const $userName = $(`<span>`)
-      .text(user.name);
+      .text(user.name)
+      .appendTo($user);
     
-    $user.append($userImage)
-      .append($userName);
+    // $user.append([$userImage, $userName]);
     
     
     const $handle = $('<span class="account-name">')
-      .text(user.handle);
-    
-    
-    $header.append([$user, $handle]);
-    
+      .text(user.handle)
+      .appendTo($header);
+      
+    const $tweetBottom = $('<span class="tweet-bottom">')
+      .appendTo($tweet);
+      
     const $body = $(`<span class="content">`)
-      .text(content.text);
+      .text(content.text)
+      .appendTo($tweetBottom);
 
 
-    const $footer = $('<footer>');
+    const $footer = $('<footer>')
+      .appendTo($tweetBottom);
 
     const timePosted = timeago.format(dateCreated);
 
     const $postTime = $('<span class="post-time">')
-      .text(timePosted);
+      .text(timePosted)
+      .appendTo($footer);
 
     const $reactions = $(`
     <span class="reactions">
@@ -53,14 +60,8 @@ $('document').ready(function() {
       <i class="fa-solid fa-arrows-rotate react"></i>
       <i class="fa-solid fa-heart react"></i>
     </span>
-      `);
-    $footer.append([$postTime, $reactions]);
-
-    const $tweetBottom = $('<span class="tweet-bottom">')
-      .append([$body, $footer]);
-
-
-    $tweet.append([$header, $tweetBottom]);
+      `)
+      .appendTo($footer);
     
     return $tweet;
     
