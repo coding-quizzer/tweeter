@@ -32,3 +32,17 @@ main {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ .tweet-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+
+ }
+
+ 
+ .content-wrapper {
+  display: wrap;
+  width: 90%;
+  justify-items: center;
+ } 
