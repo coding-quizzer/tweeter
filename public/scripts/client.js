@@ -18,8 +18,6 @@ $('document').ready(function() {
     
     const $user = $('<span class="user">');
     
-    console.log('user', user);
-    
     const $userImage = $('<img>')
       .attr('src', user.avatars);
     
@@ -79,7 +77,6 @@ $('document').ready(function() {
     event.preventDefault();
     const inputBox = $(this).children('#tweet-tweet')[0];
     const counter = $(this).children('.footer').children('.counter');
-    console.log(counter);
     $('#form-error').slideUp(() => {
       try {
         postText(this, inputBox, counter);
