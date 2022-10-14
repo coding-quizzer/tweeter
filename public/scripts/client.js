@@ -36,16 +36,16 @@ $('document').ready(function() {
       .text(user.handle)
       .appendTo($header);
       
-    const $tweetBottom = $('<span class="tweet-bottom">')
+    const $tweetMain = $('<span class="tweet-main">')
       .appendTo($tweet);
       
     const $body = $(`<span class="content">`)
       .text(content.text)
-      .appendTo($tweetBottom);
+      .appendTo($tweetMain);
 
 
     const $footer = $('<footer>')
-      .appendTo($tweetBottom);
+      .appendTo($tweetMain);
 
     const timePosted = timeago.format(dateCreated);
 
@@ -55,9 +55,9 @@ $('document').ready(function() {
 
     const $reactions = $(`
     <span class="reactions">
-      <i class="fa-solid fa-flag react>
-      <i class="fa-solid fa-flag react"></i>
-      <i class="fa-solid fa-arrows-rotate react"></i>
+      <i class="fa-solid fa-flag">
+      <i class="fa-solid fa-flag "></i>
+      <i class="fa-solid fa-arrows-rotate"></i>
       <i class="fa-solid fa-heart react"></i>
     </span>
       `)
