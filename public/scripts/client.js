@@ -78,10 +78,11 @@ $('document').ready(function() {
 
     event.preventDefault();
     const inputBox = $(this).children('#tweet-tweet')[0];
-    const textLength = inputBox.textLength;
+    const counter = $(this).children('.footer').children('.counter');
+    console.log(counter);
     $('#form-error').slideUp(() => {
       try{
-        postText(this, inputBox); 
+        postText(this, inputBox, counter); 
       } catch (error) {
         renderError(error.message);
       }
@@ -94,7 +95,7 @@ $('document').ready(function() {
       return;
   };
 
-  const postText = function(form, inputBox) {
+  const postText = function(form, inputBox, counter) {
     const { textLength } = inputBox
 
     if (textLength === 0) throw new Error("There is no message to post");
@@ -105,10 +106,12 @@ $('document').ready(function() {
     $.ajax('/tweets/', { method: 'POST', data: query})
       .then(function (data, error) {
         inputBox.value = "";
+        counter.text("140");
         return $.ajax('/tweets/', { method: 'GET'});
       })
       .then (function (tweets) {
         renderTweets(tweets.slice(-1));
+        
       });
 
   }
