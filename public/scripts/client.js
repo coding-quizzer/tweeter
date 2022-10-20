@@ -73,7 +73,7 @@ $('document').ready(function() {
 
     event.preventDefault();
     const inputBox = $(this).children('#tweet-tweet')[0];
-    const counter = $(this).children('.footer').children('.counter');
+    const counter = $(this).find('.counter');
     $('#form-error').slideUp(() => {
       try {
         postText(this, inputBox, counter);
@@ -99,11 +99,12 @@ $('document').ready(function() {
     
     $.ajax('/tweets/', { method: 'POST', data: query})
       .then(function() {
-        inputBox.value = "";
+        console.log(counter);
         counter.text("140");
         return $.ajax('/tweets/', { method: 'GET'});
       })
       .then(function(tweets) {
+        inputBox.value = "";
         renderTweets(tweets.slice(-1));
         
       });
